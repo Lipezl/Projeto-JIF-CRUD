@@ -1,0 +1,45 @@
+<%- include('../partials/header') %>
+
+<div class="content">
+    <div class="container">
+        <h3>Lista de Comissões</h3>
+
+        <!-- Tabela de Comissões com responsividade -->
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Data de Nascimento</th>
+                        <th>Documento</th>
+                        <th>Modalidade</th>
+                        <th>Campus</th>
+                        <th>Adicionado pelo usuário</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% comissao.forEach(comissao => { %>
+                        <tr>
+                            <td><%= comissao.nome %></td>
+                            <td><%= comissao.dataNascimento.toISOString().split('T')[0] %></td>
+                            <td><%= comissao.documento %></td>
+                            <td><%= comissao.modalidade %></td>
+                            <td><%= comissao.campus %></td>
+                            <td><%= comissao.responsavel || 'Desconhecido' %></td> <!-- Verificação de valor -->
+                            <td>
+                                <a href="/comissao/editar/<%= comissao.id %>" class="btn btn-warning btn-sm">Editar</a>
+
+                                <form action="/comissao/delete/<%= comissao.id %>?_method=DELETE" method="POST" style="display:inline;">
+                                    <button type="submit" class="btn btn-danger btn-sm">Deletar</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>

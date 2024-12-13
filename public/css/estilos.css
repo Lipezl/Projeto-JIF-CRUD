@@ -1,0 +1,136 @@
+*{
+    list-style: none;
+}
+
+body, html {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #33773e;
+}
+.content {
+    flex: 1;
+}
+
+.listaCadastros{
+    margin-top: 10%;
+}
+
+.formLogin {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 7px;
+    padding: 40px;
+    box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.4);
+    gap: 5px
+}
+
+.formLogin h1 {
+    padding: 0;
+    margin: 0;
+    font-weight: 500;
+    font-size: 2.3em;
+}
+
+.formLogin p {
+    display: inline-block;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.formLogin input {
+    padding: 15px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    border-radius: 4px;
+    transition: all linear 160ms;
+    outline: none;
+}
+
+
+.formLogin input:focus {
+    border: 1px solid #0fd22f;
+}
+
+.formLogin label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.formLogin a {
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: #555;
+    transition: all linear 160ms;
+}
+
+.formLogin a:hover {
+    color: #0fd22f;
+}
+
+.btnlogin {
+    background-color: #33773e;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    border: none !important;
+    transition: all linear 160ms;
+    cursor: pointer;
+    margin: 0 !important;
+
+}
+
+.btnlogin:hover {
+    transform: scale(1.05);
+    background-color: #0fd22f;
+
+}
+
+.forms{
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 14px;
+}
+
+.usuario-nome {
+    color: #f39c12;
+    font-weight: bold;
+    font-size: 2rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 50%;
+    text-align: center;
+}
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    float: right;
+    cursor: pointer;
+}
+.close:hover {
+    color: black;
+}

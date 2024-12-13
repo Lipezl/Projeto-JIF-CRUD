@@ -1,0 +1,45 @@
+<%- include('../partials/header') %>
+
+        <% if (isLogin) { %>
+            <div class="container-fluid d-flex align-items-center justify-content-center vh-100 text-white">
+                <div class="text-center w-100">
+                    <h1 class="display-4">Bem-vindo <span class="usuario-nome"><%= usuarios.NomeUsuario %></span> ao Sistema de Gestão dos Jogos dos Institutos Federais</h1>
+                    <p class="lead mt-3">
+                        Gerencie atletas, comissão, coordenação e muito mais de forma prática e eficiente.
+                    </p>
+                    <div class="mt-4">
+                        <a href="/usuarios/logout" class="btn btn-light btn-lg shadow mx-2 mb-2 mb-sm-0">
+                            <i class="bi bi-person-plus-fill"></i> Logout
+                        </a>
+
+                        <form action="/usuarios/deletar?_method=DELETE" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir sua conta?')" style="display:inline;">
+                            <button type="submit" class="btn btn-light btn-lg shadow mx-2 mb-2 mb-sm-0">
+                                <i class="bi bi-person-plus-fill"></i> Deletar conta
+                            </button>
+                        </form>                
+                    </div>
+                </div>
+            </div>
+        <% } else {%>
+            <div class="container-fluid d-flex align-items-center justify-content-center vh-100 text-white">
+                <div class="text-center w-100">
+                    <h1 class="display-4">Bem-vindo ao Sistema de Gestão dos Jogos dos Institutos Federais</h1>
+                    <p class="lead mt-3">
+                        Gerencie atletas, comissão, coordenação e muito mais de forma prática e eficiente.
+                    </p>
+
+                    <div class="mt-4">
+                        <a href="/usuarios/novo" class="btn btn-light btn-lg shadow mx-2 mb-2 mb-sm-0">
+                            <i class="bi bi-person-plus-fill"></i> Cadastro
+                        </a>
+                        <a href="/usuarios/login" class="btn btn-outline-light btn-lg shadow mx-2">
+                            <i class="bi bi-box-arrow-in-right"></i> Login
+                        </a>
+                    </div>
+                </div>
+            </div>
+         <% } %>
+
+
+
+<%- include('../partials/footer') %>

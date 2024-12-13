@@ -1,0 +1,43 @@
+<%- include('../partials/header') %>
+
+<div class="content">
+    <div class="container">
+        <h3>Lista de Coordenações</h3>
+
+        <!-- Tabela de Coordenações com responsividade -->
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Data de Nascimento</th>
+                        <th>Documento</th>
+                        <th>Campus</th>
+                        <th>Adicionado pelo usuário</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% coordenacao.forEach(coordenacao => { %>
+                        <tr>
+                            <td><%= coordenacao.nome %></td>
+                            <td><%= new Date(coordenacao.dataNascimento).toISOString().split('T')[0] %></td>
+                            <td><%= coordenacao.documento %></td>
+                            <td><%= coordenacao.campus %></td>
+                            <td><%= coordenacao.responsavel || 'Desconhecido' %></td> <!-- Responsável -->
+                            <td>
+                                <a href="/coordenacao/editar/<%= coordenacao.id %>" class="btn btn-warning btn-sm">Editar</a>
+
+                                <form action="/coordenacao/delete/<%= coordenacao.id %>?_method=DELETE" method="POST" style="display:inline;">
+                                    <button type="submit" class="btn btn-danger btn-sm">Deletar</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>

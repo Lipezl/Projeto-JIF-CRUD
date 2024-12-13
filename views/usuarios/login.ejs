@@ -1,0 +1,32 @@
+<%- include('../partials/header') %>
+
+<div class="content">
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <form action="/usuarios/login" method="POST" class="formLogin w-100 w-sm-50 w-md-40 w-lg-30">
+            <h1 class="text-center">Login</h1>
+            <p class="text-center">Digite os seus dados de acesso nos campos abaixo.</p>
+
+            <% if (erro) { %>
+                <div class="alert alert-danger text-center" role="alert">
+                    <%= erro %>
+                </div>
+            <% } %>
+
+            <div class="form-group">
+                <label for="usuario">Nome de Usuário</label>
+                <input type="text" id="usuario" name="username" class="form-control" placeholder="Digite seu usuário" autofocus="true" required />
+            </div>
+
+            <div class="form-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Digite sua senha" required />
+            </div>
+
+            <div class="text-center">
+                <input type="submit" value="Acessar" class="btn btn-primary w-100 mt-3" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>

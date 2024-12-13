@@ -1,0 +1,40 @@
+<%- include('../partials/header') %>
+
+<div class="content">
+    <div class="container">
+        <h3>Editar Atleta</h3>
+        <form action="/atleta/editar/<%= atleta.id %>?_method=PATCH" method="POST">
+            <div class="form-group forms">
+                <label for="nome">Nome:</label>
+                <input type="text" class="form-control" id="nome" name="nome" value="<%= atleta.nome %>">
+                
+                <label for="dataNascimento">Data de Nascimento:</label>
+                <input type="date" class="form-control" id="dataNascimento" name="dataNascimento" value="<%= atleta.dataNascimento %>">
+        
+                <label for="documento">Documento(RG/CPF):</label>
+                <input type="text" class="form-control" id="documento" name="documento" value="<%= atleta.documento %>">
+                
+                <label for="modalidade">Modalidade:</label>
+                <select name="modalidade" class="form-control" id="modalidade">
+                    <option value="" disabled>Selecione uma opção</option>
+                    <option value="Futsal" <%= atleta.modalidade === 'Futsal' ? 'selected' : '' %>>Futsal</option>
+                    <option value="Basquete" <%= atleta.modalidade === 'Basquete' ? 'selected' : '' %>>Basquete</option>
+                    <option value="Volei" <%= atleta.modalidade === 'Volei' ? 'selected' : '' %>>Vôlei</option>
+                    <option value="Xadrez" <%= atleta.modalidade === 'Xadrez' ? 'selected' : '' %>>Xadrez</option>
+                </select> </br>               
+                <label for="campus">Campus:</label>
+                <select class="form-control" id="campus" name="campus_id" required>
+                    <option value="" disabled selected>Selecione um campus</option>
+                    <% campus.forEach(campus => { %>
+                        <option value="<%= campus.id %>"><%= campus.nome %></option>
+                    <% }); %>
+                </select>                
+                <br>
+                <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+            </div>
+            
+        </form>        
+    </div>
+</div>
+
+<%- include('../partials/footer') %>

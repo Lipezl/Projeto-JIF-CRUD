@@ -1,0 +1,42 @@
+<%- include('../partials/header') %>
+
+<div class="content">
+    <div class="container">
+        <h3>Cadastrar Atleta</h3>
+        <form action="/atleta/cadastro" method="post">
+            <div class="form-group forms">
+                <label for="nome">Nome:</label>
+                <input type="text" class="form-control" id="nome" name="nome" required>
+
+                <label for="dataNascimento">Data de Nascimento:</label>
+                <input type="date" class="form-control" id="dataNascimento" name="dataNascimento" required>
+
+                <label for="documento">Documento (RG/CPF):</label>
+                <input type="text" class="form-control" id="documento" name="documento" required>
+                
+                <label for="modalidade">Modalidade:</label>
+                <select class="form-control" name="modalidade" id="modalidade" required>
+                    <option value="" disabled selected>Selecione uma opção</option>
+                    <option value="Futsal">Futsal</option>
+                    <option value="Basquete">Basquete</option>
+                    <option value="Volei">Vôlei</option>
+                    <option value="Xadrez">Xadrez</option>
+                </select>
+                <br>
+
+                <label for="campus">Campus:</label>
+                <select class="form-control" id="campus" name="campus_id" required>
+                    <option value="" disabled selected>Selecione um campus</option>
+                    <% campus.forEach(campus => { %>
+                        <option value="<%= campus.id %>"><%= campus.nome %></option>
+                    <% }); %>
+                </select>                
+                <br>
+
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>
