@@ -51,7 +51,7 @@ Projeto-JIF-CRUD/
 ### Passos para Configurar o Projeto
 1. **Clonar o repositório**:
    ```bash
-   git clone <URL_DO_REPOSITORIO>
+   git clone git clone https://github.com/Lipezl/Projeto-JIF-CRUD.git
    cd Projeto-JIF-CRUD
    ```
 
