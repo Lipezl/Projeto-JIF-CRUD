@@ -1,17 +1,14 @@
 const mysql = require('mysql');
+require('dotenv').config();
 
-// Configurações de conexão
 const dbConfig = {
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    // Não especificamos o database aqui para permitir a criação caso ele não exista
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
 };
 
-// Nome do banco de dados
-const databaseName = 'jif';
+const databaseName = process.env.DB_NAME;
 
-// Função para criar o banco de dados, caso não exista
 function createDatabaseIfNotExists(connection) {
     connection.query(`CREATE DATABASE IF NOT EXISTS \`${databaseName}\``, (err) => {
         if (err) {
@@ -20,7 +17,6 @@ function createDatabaseIfNotExists(connection) {
         }
         console.log(`Banco de dados '${databaseName}' garantido.`);
         
-        // Após garantir que o banco existe, reconecte usando o databaseName
         connection.changeUser({ database: databaseName }, (err) => {
             if (err) {
                 console.error('Erro ao alterar para o banco de dados:', err.stack);
@@ -31,18 +27,14 @@ function createDatabaseIfNotExists(connection) {
     });
 }
 
-// Cria a conexão inicial
 const connection = mysql.createConnection(dbConfig);
 
-// Conecta e garante a criação do banco de dados
 connection.connect((err) => {
     if (err) {
         console.error('Erro ao conectar ao MySQL:', err.stack);
         return;
     }
     console.log('Conectado ao MySQL.');
-
-    // Verifica e cria o banco de dados se necessário
     createDatabaseIfNotExists(connection);
 });
 

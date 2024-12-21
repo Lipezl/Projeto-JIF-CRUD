@@ -3,7 +3,7 @@ const path = require('path');
 const { users, home, atleta, comissao, coordenacao, campus } = require('./controllers'); // Importar o roteador de usuários
 var methodOverride = require('method-override');
 const app = express();
-const port = 80;
+const port = 3000;
 
 const session = require('express-session');
 const oneDay = 1000 * 60 * 60 * 24;
@@ -60,5 +60,5 @@ app.use('/coordenacao', coordenacao);
 app.use('/campus', campus);
 
 app.listen(port, () => {
-    console.log("Ouvindo na porta 80!");
+    console.log(`Ouvindo na porta ${port}`);
 });
